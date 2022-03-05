@@ -23,7 +23,8 @@ class Home extends React.Component {
                         <div className="row align-items-center">
                             <div className="col-lg-2">
                                 <div className="logo-box">
-                                    <Link to="/home" className="logo"><img src="assets/images/logo-white.png" alt="logo" /></Link>
+                                    <Link to="/" className="logo"><img src="assets/images/logo-white.png" alt="logo" />
+                                    </Link>
                                     <div className="user-action">
                                         <div className="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
                                             <i className="la la-search"></i>
@@ -43,9 +44,9 @@ class Home extends React.Component {
                                             {/* <Link to="/register"> Sign Up </Link> */}
                                                 <Link to="#">Home <i className="la la-angle-down fs-11"></i></Link>
                                                 <ul className="dropdown-menu-item">
-                                                    <li><Link to="/">Home - landing</Link></li>
-                                                    <li><Link to="home-2.html">Home - main</Link></li>
-                                                    <li><Link to="home-3.html">Home - layout 2 <span className="badge bg-warning text-white">New</span></Link></li>
+                                                    {/* <li><Link to="/">Home - landing</Link></li> */}
+                                                    <li><Link to="/">Home - main</Link></li>
+                                                    {/* <li><Link to="/">Home - layout 2 <span className="badge bg-warning text-white">New</span></Link></li> */}
                                                 </ul>
                                             </li>
                                             <li className="is-mega-menu">
@@ -54,51 +55,19 @@ class Home extends React.Component {
                                                     <ul className="row">
                                                         <li className="col-lg-3">
                                                             <Link to="user-profile.html">user profile</Link>
-                                                            <Link to="notifications.html">Notifications</Link>
-                                                            <Link to="referrals.html">Referrals</Link>
-                                                            <Link to="setting.html">settings</Link>
                                                             <Link to="/askquestion">ask question</Link>
                                                             <Link to="question-details.html">question details</Link>
                                                             <Link to="/about">about</Link>
-                                                            <Link to="revisions.html">revisions</Link>
-                                                            <Link to="category.html">category</Link>
-                                                            <Link to="companies.html">companies</Link>
-                                                            <Link to="company-details.html">company details</Link>
-                                                        </li>
-                                                        <li className="col-lg-3">
-                                                            <Link to="careers.html">careers</Link>
-                                                            <Link to="career-details.html">career details</Link>
-                                                            <Link to="contact.html">contact</Link>
-                                                            <Link to="faq.html">FAQs</Link>
-                                                            <Link to="pricing-table.html">pricing tables</Link>
-                                                            <Link to="/*">page 404</Link>
-                                                            <Link to="terms-and-conditions.html">Terms & conditions</Link>
-                                                            <Link to="privacy-policy.html">privacy policy</Link>
-                                                            <Link to="cart.html">cart</Link>
-                                                            <Link to="talent.html">talent</Link>
-                                                            <Link to="advertising.html">advertising</Link>
-                                                        </li>
-                                                        <li className="col-lg-3">
-                                                            <Link to="free-demo.html">free demo</Link>
-                                                            <Link to="checkout.html">checkout</Link>
-                                                            <Link to="wishlist.html">wishlist</Link>
                                                             <Link to="/login">login</Link>
-                                                            {/* <Link to="/login">login 2</Link> */}
                                                             <Link to="/signup">sign up</Link>
-                                                            {/* <Link to="signup-2.html">sign up 2</Link> */}
-                                                            <Link to="recover-password.html">recover password</Link>
-                                                            <Link to="questions-layout-2.html">questions layout 2 <span className="badge bg-warning text-white">New</span></Link>
-                                                            <Link to="questions-full-width.html">questions full-width <span className="badge bg-warning text-white">New</span></Link>
-                                                            <Link to="questions-left-sidebar.html">questions left sidebar <span className="badge bg-warning text-white">New</span></Link>
+                                                            </li>
+                                                        <li className="col-lg-3">
+                                                            
                                                         </li>
                                                         <li className="col-lg-3">
-                                                            <Link to="questions-right-sidebar.html">questions right sidebar <span className="badge bg-warning text-white">New</span></Link>
                                                             <Link to="user-list.html">user list <span className="badge bg-warning text-white">New</span></Link>
-                                                            <Link to="category-list.html">category list <span className="badge bg-warning text-white">New</span></Link>
                                                             <Link to="tags-list.html">tags list <span className="badge bg-warning text-white">New</span></Link>
                                                             <Link to="/addpost">add post <span className="badge bg-warning text-white">New</span></Link>
-                                                            <Link to="badges-list.html">Badges list <span className="badge bg-warning text-white">New</span></Link>
-                                                            <Link to="job-list.html">job list <span className="badge bg-warning text-white">New</span></Link>
                                                             <Link to="error-2.html">page 404 2 <span className="badge bg-warning text-white">New</span></Link>
                                                         </li>
                                                     </ul>
@@ -107,9 +76,6 @@ class Home extends React.Component {
                                             <li>
                                                 <Link to="#">blog <i className="la la-angle-down fs-11"></i></Link>
                                                 <ul className="dropdown-menu-item">
-                                                    <li><Link to="blog-grid-no-sidebar.html">grid no sidebar</Link></li>
-                                                    <li><Link to="blog-left-sidebar.html">blog left sidebar</Link></li>
-                                                    <li><Link to="blog-right-sidebar.html">blog right sidebar</Link></li>
                                                     <li><Link to="blog-single.html">blog detail</Link></li>
                                                 </ul>
                                             </li>
@@ -124,8 +90,8 @@ class Home extends React.Component {
                                         </div>
                                     </form>
                                     <div className="nav-right-button">
-                                        <Link to="#" className="btn theme-btn theme-btn-outline theme-btn-outline-white mr-2" data-toggle="modal" data-target="#loginModal"><i className="la la-sign-in mr-1"></i> Login</Link>
-                                        <Link to="#" className="btn theme-btn theme-btn-white" data-toggle="modal" data-target="#signUpModal"><i className="la la-user mr-1"></i> Sign up</Link>
+                                        <Link to="/login" className="btn theme-btn theme-btn-outline theme-btn-outline-white mr-2" ><i className="la la-sign-in mr-1"></i> Login</Link>
+                                        <Link to="/signup" className="btn theme-btn theme-btn-white"><i className="la la-user mr-1"></i> Sign up</Link>
                                     </div>   
                                     {/* <!-- end nav-right-button --> */}
                                 </div>
@@ -145,23 +111,23 @@ class Home extends React.Component {
                             <li>
                                 <Link to="#">Home</Link>
                                 <ul className="sub-menu">
-                                    <li><Link to="/home">Home - landing</Link></li>
-                                    <li><Link to="home-2.html">Home - main</Link></li>
+                                    {/* <li><Link to="/home">Home - landing</Link></li> */}
+                                    <li><Link to="/">Home - main</Link></li>
                                 </ul>
                             </li>
                             <li>
                                 <Link to="#">Pages</Link>
                                 <ul className="sub-menu">
                                     <li><Link to="user-profile.html">user profile</Link></li>
-                                    <li><Link to="notifications.html">Notifications</Link></li>
-                                    <li><Link to="referrals.html">Referrals</Link></li>
-                                    <li><Link to="setting.html">settings</Link></li>
+                                    {/* <li><Link to="notifications.html">Notifications</Link></li> */}
+                                    {/* <li><Link to="referrals.html">Referrals</Link></li>
+                                    <li><Link to="setting.html">settings</Link></li> */}
                                     <li><Link to="/askquestion">ask question</Link></li>
                                     <li><Link to="question-details.html">question details</Link></li>
                                     <li><Link to="/about">about</Link></li>
-                                    <li><Link to="revisions.html">revisions</Link></li>
-                                    <li><Link to="category.html">category</Link></li>
-                                    <li><Link to="companies.html">companies</Link></li>
+                                    {/* <li><Link to="revisions.html">revisions</Link></li> */}
+                                    {/* <li><Link to="category.html">category</Link></li> */}
+                                    {/* <li><Link to="companies.html">companies</Link></li>
                                     <li><Link to="company-details.html">company details</Link></li>
                                     <li><Link to="careers.html">careers</Link></li>
                                     <li><Link to="career-details.html">career details</Link></li>
@@ -170,23 +136,26 @@ class Home extends React.Component {
                                     <li><Link to="pricing-table.html">pricing tables</Link></li>
                                     <li><Link to="error.html">page 404</Link></li>
                                     <li><Link to="terms-and-conditions.html">Terms & conditions</Link></li>
-                                    <li><Link to="privacy-policy.html">privacy policy</Link></li>
+                                    <li><Link to="privacy-policy.html">privacy policy</Link></li> */}
                                 </ul>
                             </li>
                             <li>
                                 <Link to="#">blog</Link>
                                 <ul className="sub-menu">
-                                    <li><Link to="blog-grid-no-sidebar.html">grid no sidebar</Link></li>
+                                    {/* <li><Link to="blog-grid-no-sidebar.html">grid no sidebar</Link></li>
                                     <li><Link to="blog-left-sidebar.html">blog left sidebar</Link></li>
-                                    <li><Link to="blog-right-sidebar.html">blog right sidebar</Link></li>
-                                    <li><Link to="blog-single.html">blog detail</Link></li>
+                                    <li><Link to="blog-right-sidebar.html">blog right sidebar</Link></li> */}
+                                    <li><Link to="blog-single.html">blog detail</Link></li> 
                                 </ul>
                             </li>
                         </ul>
                         <div className="off-canvas-btn-box px-4 pt-5 text-center">
-                            <Link to="#" className="btn theme-btn theme-btn-sm theme-btn-outline" data-toggle="modal" data-target="#loginModal"><i className="la la-sign-in mr-1"></i> Login</Link>
+                            <Link to="/login" className="btn theme-btn theme-btn-sm theme-btn-outline" 
+                            // data-toggle="modal" data-target="#loginModal"
+                           >
+                            <i className="la la-sign-in mr-1"></i> Login</Link>
                             <span className="fs-15 fw-medium d-inline-block mx-2">Or</span>
-                            <Link to="#" className="btn theme-btn theme-btn-sm" data-toggle="modal" data-target="#signUpModal"><i className="la la-plus mr-1"></i> Sign up</Link>
+                            <Link to="/signup" className="btn theme-btn theme-btn-sm" ><i className="la la-plus mr-1"></i> Sign up</Link>
                         </div>
                     </div>
                     {/* <!-- end off-canvas-menu --> */}
@@ -229,8 +198,8 @@ class Home extends React.Component {
                     <h2 className="section-title fs-50 pb-3 text-white lh-65">Join the world's biggest Q&A network!</h2>
                     <p className="lh-26 text-white">This is just a simple text made for this unique and awesome template, you can replace it with any text.</p>
                     <div className="hero-btn-box pt-30px">
-                        <Link to="#for-developers" className="btn theme-btn mr-2 page-scroll">For developers <i className="la la-angle-down icon ml-1"></i></Link>
-                        <Link to="#for-businesses" className="btn theme-btn bg-3 page-scroll">For businesses <i className="la la-angle-down icon ml-1"></i></Link>
+                        <Link to="#fordevelopers" className="btn theme-btn mr-2 page-scroll">For developers <i className="la la-angle-down icon ml-1"></i></Link>
+                        <Link to="#forbusinesses" className="btn theme-btn bg-3 page-scroll">For businesses <i className="la la-angle-down icon ml-1"></i></Link>
                     </div>
                 </div>
                 {/* <!-- end hero-content --> */}
@@ -330,7 +299,7 @@ class Home extends React.Component {
                     </div>
                     <div className="media-body">
                         <p className="pb-3 fs-18">Find the best answer to your technical question, <br /> help others answer theirs</p>
-                        <Link to="home-2.html" className="btn theme-btn theme-btn-white">Browse questions <i className="la la-arrow-right icon ml-1"></i></Link>
+                        <Link to="/" className="btn theme-btn theme-btn-white">Browse questions <i className="la la-arrow-right icon ml-1"></i></Link>
                     </div>
                 </div>
             </div>
@@ -366,37 +335,37 @@ class Home extends React.Component {
             <div className="row justify-content-center text-center pt-50px">
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
-                        <img src="images/client-logo.png" alt="client-logo" />
+                        <img src="assets/images/client-logo.png" alt="client-logo" />
                     </div>
                 </div> 
                 {/* <!-- end col-lg-3 --> */}
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
-                        <img src="images/client-logo-2.png" alt="client-logo" />
+                        <img src="assets/images/client-logo-2.png" alt="client-logo" />
                     </div>
                 </div>
                 {/* <!-- end col-lg-3 --> */}
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
-                        <img src="images/client-logo-3.png" alt="client-logo" />
+                        <img src="assets/images/client-logo-3.png" alt="client-logo" />
                     </div>
                 </div>
                 {/* <!-- end col-lg-3 --> */}
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
-                        <img src="images/client-logo-4.png" alt="client-logo" />
+                        <img src="assets/images/client-logo-4.png" alt="client-logo" />
                     </div>
                 </div>
                 {/* <!-- end col-lg-3 --> */}
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
-                        <img src="images/client-logo-5.png" alt="client-logo" />
+                        <img src="assets/images/client-logo-5.png" alt="client-logo" />
                     </div>
                 </div>
                 {/* <!-- end col-lg-3 --> */}
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
-                        <img src="images/client-logo-6.png" alt="client-logo" />
+                        <img src="assets/images/client-logo-6.png" alt="client-logo" />
                     </div>
                 </div>
                 {/* <!-- end col-lg-3 --> */}
@@ -412,7 +381,7 @@ class Home extends React.Component {
 <!-- ================================
          START CTA AREA
 ================================= --> */}
-<section className="get-started-area section--padding pattern-bg" id="for-developers">
+<section className="get-started-area section--padding pattern-bg" id="fordevelopers">
     <div className="container">
         <div className="text-center">
             <h2 className="section-title pb-3">For developers, by developers</h2>
@@ -443,7 +412,7 @@ class Home extends React.Component {
                 </svg>
                         <h5 className="card-title pt-4 pb-2">Public Q&A</h5>
                         <p className="card-text pb-4">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
-                        <Link to="home-2.html" className="btn theme-btn">Browse questions <i className="la la-arrow-right icon ml-1"></i></Link>
+                        <Link to="/" className="btn theme-btn">Browse questions <i className="la la-arrow-right icon ml-1"></i></Link>
                     </div>
                     {/* <!-- end card-body --> */}
                 </div>
@@ -1027,8 +996,8 @@ class Home extends React.Component {
                 <div className="footer-item">
                     <h3 className="fs-18 fw-bold pb-2 text-white">Company</h3>
                     <ul className="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="contact.html">Contact</Link></li>
+                        <li><Link to="/about">About</Link></li> 
+                        <li><Link to="contact.html">Contact</Link></li> 
                         <li><Link to="careers.html">Careers</Link></li>
                         <li><Link to="advertising.html">Advertising</Link></li>
                     </ul>
@@ -1080,13 +1049,13 @@ class Home extends React.Component {
     <div className="container">
         <div className="row align-items-center pb-4 copyright-wrap">
             <div className="col-lg-6">
-                <Link to="/home" className="d-inline-block">
-                    <img src="assets/images/logo-white.png" alt="footer logo" className="footer-logo" />
+                <Link to="/" className="d-inline-block">
+                    <img src="/assets/images/logo-white.png" alt="footer logo" className="footer-logo" />
                 </Link>
             </div>
             {/* <!-- end col-lg-6 --> */}
             <div className="col-lg-6">
-                <p className="copyright-desc text-right fs-14">Copyright &copy; 2021 <a href="https://techydevs.com/">TechyDevs</a> Inc.</p>
+                <p className="copyright-desc text-right fs-14">Copyright &copy; 2021 <Link to="https://techydevs.com/">TechyDevs</Link> Inc.</p>
             </div>
             {/* <!-- end col-lg-6 --> */}
         </div>
@@ -1163,7 +1132,7 @@ class Home extends React.Component {
                             <input type="checkbox" className="custom-control-input" id="rememberMe" />
                             <label className="custom-control-label custom--control-label" for="rememberMe">Remember me!</label>
                         </div>
-                        <Link to="javascript:void(0)" className="lost-pass-btn fs-14 hover-underline">Forgot Password?</Link>
+                        <Link to="#" className="lost-pass-btn fs-14 hover-underline">Forgot Password?</Link>
                     </div>
                     <div className="btn-box">
                         <button type="submit" className="btn theme-btn w-100">
@@ -1171,7 +1140,7 @@ class Home extends React.Component {
                         </button>
                     </div>
                     <p className="create-account-text text-right fs-14 pt-1">
-                        New to disilab? <a className="signup-btn text-color hover-underline" href="javascript:void(0)">Create account</a>
+                        New to disilab? <a className="signup-btn text-color hover-underline" href="#">Create account</a>
                     </p>
                     <div className="icon-element my-4 mx-auto shadow-sm fs-25">Or</div>
                     <div className="text-center">
@@ -1231,7 +1200,7 @@ class Home extends React.Component {
                         </button>
                     </div>
                     <p className="create-account-text text-right fs-14">
-                        Already on disilab? <a className="login-btn text-color hover-underline" href="javascript:void(0)">Log in</a>
+                        Already on disilab? <a className="login-btn text-color hover-underline" href="">Log in</a>
                     </p>
                     <div className="icon-element my-4 mx-auto shadow-sm fs-25">Or</div>
                     <div className="text-center">
@@ -1272,7 +1241,7 @@ class Home extends React.Component {
                             Get New Password <i className="la la-arrow-right icon ml-1"></i>
                         </button>
                         <p className="create-account-text text-right fs-14">
-                            Not a member? <a className="text-color signup-btn hover-underline" href="javascript:void(0)">Create account</a>
+                            Not a member? <a className="text-color signup-btn hover-underline" href="#!">Create account</a>
                         </p>
                     </div>
                 </form>

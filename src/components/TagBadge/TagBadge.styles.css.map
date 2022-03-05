@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,IAAI;CAClB",
+    "sources": [
+        "TagBadge.styles.scss"
+    ],
+    "names": [],
+    "file": "TagBadge.styles.css"
+}

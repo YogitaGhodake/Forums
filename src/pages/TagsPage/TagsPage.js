@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from '../../components/Header/Footer';
-import HeaderLight from '../../components/Header/HeaderLight';
+import Footer from '../../components2/Header/Footer';
+import HeaderLight from '../../components2/Header/HeaderLight';
 
 const TagsPage = () => {
 

@@ -1,0 +1,9 @@
+.question .post-layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content 1fr;
+      grid-template-columns: -webkit-max-content 1fr;
+      grid-template-columns: max-content 1fr;
+  color: #242729;
+}
+/*# sourceMappingURL=QuestionSection.styles.css.map */

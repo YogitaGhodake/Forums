@@ -1,0 +1,40 @@
+.side-bar-tags {
+  word-wrap: break-word;
+  margin-bottom: 20px;
+  color: #242729;
+  margin-top: 24px;
+}
+
+.side-bar-tags .tag-headline {
+  color: #3c4146;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+.side-bar-tags .tag-content {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin-bottom: 8px;
+}
+
+.side-bar-tags .tag-content .tag-mult {
+  margin-right: 4px;
+  color: #848d95;
+}
+
+.side-bar-tags .tag-content .tag-mult span {
+  font-size: 11px;
+  color: #6a737c;
+}
+
+.show-tags {
+  display: block;
+  margin: 5px 0;
+  color: #0077cc;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+/*# sourceMappingURL=TagsWidget.styles.css.map */

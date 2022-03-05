@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,KAAK,EAAE,KAAK;EACZ,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,QAAQ;EAChB,YAAY,EAAE,GAAG;EACjB,MAAM,EAAE,IAAI;CACb;;AAED,MAAM,EAAC,SAAS,EAAE,MAAM;EACtB,AAAA,SAAS,CAAC;IACR,KAAK,EAAE,IAAI;IACX,KAAK,EAAE,IAAI;IACX,OAAO,EAAE,IAAI;GACd",
+    "sources": [
+        "RightSideBar.styles.scss"
+    ],
+    "names": [],
+    "file": "RightSideBar.styles.css"
+}
