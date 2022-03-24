@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../redux/auth/auth.actions';
@@ -71,11 +71,11 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                     <div className="dropdown-menu-item mega-menu">
                         <ul className="row " >
                             <li className="col-lg-3">
-                                <Link to="user-profile.html">user profile</Link>
+                                <Link to="/users">user profile</Link>
                                 <Link to="/login">login</Link>
                                 <Link to="/signup">sign up</Link>
-                                <Link to="/askquestion">ask question</Link>
-                                <Link to="question-details.html">question details</Link>
+                                <Link to="/add/question">ask question</Link>
+                                <Link to="/questions">question details</Link>
                                 <Link to="/about">about</Link>
                                 <Link to="/users">user list <span className="badge bg-warning text-white">New</span></Link>
                                 <Link to="/tags">tags list <span className="badge bg-warning text-white">New</span></Link>
@@ -87,7 +87,6 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                 <li>
                     <Link to="#">blog <i className="la la-angle-down fs-11"></i></Link>
                     <ul className="dropdown-menu-item">
-                        <li><Link to="blog-right-sidebar.html">blog right sidebar</Link></li>
                         <li><Link to="blog-single.html">blog detail</Link></li>
                     </ul>
                 </li>
@@ -134,7 +133,7 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                     <div className="row align-items-center">
                         <div className="col-lg-2">
                             <div className="logo-box">
-                                <Link to="/" className="logo"><img src="assets/images/logo-black.png" alt="logo" /></Link>
+                                <Link to="/" className="logo"><img src="/assets/images/logo-black.png" alt="logo" /></Link>
                                 <div className="user-action">
                                     <div className="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
                                         <i className="la la-search"></i>
@@ -149,38 +148,7 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                         <div className="col-lg-10">
                             <div className="menu-wrapper border-left border-left-gray pl-4 justify-content-end">
                                 <nav className="menu-bar mr-auto">
-                                    {/* <ul>
-                            <li>
-                                <Link to="#">Home <i className="la la-angle-down fs-11"></i></Link>
-                                <ul className="dropdown-menu-item">
-                                    <li><Link to="home-2.html">Home - main</Link></li>
-                                </ul>
-                            </li>
-                            <li className="is-mega-menu">
-                                <Link to="#">pages <i className="la la-angle-down fs-11"></i></Link>
-                                <div className="dropdown-menu-item mega-menu">
-                                    <ul className="row">
-                                        <li className="col-lg-3">
-                                            <Link to="user-profile.html">user profile</Link>
-                                            <Link to="login.html">login</Link>
-                                            <Link to="signup.html">sign up</Link>
-                                            <Link to="ask-question.html">ask question</Link>
-                                            <Link to="question-details.html">question details</Link>
-                                            <Link to="about.html">about</Link>
-                                            <Link to="user-list.html">user list <span className="badge bg-warning text-white">New</span></Link>
-                                            <Link to="tags-list.html">tags list <span className="badge bg-warning text-white">New</span></Link>
-                                            <Link to="add-post.html">add post <span className="badge bg-warning text-white">New</span></Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <Link to="#">blog <i className="la la-angle-down fs-11"></i></Link>
-                                <ul className="dropdown-menu-item">
-                                    <li><Link to="blog-single.html">blog detail</Link></li>
-                                </ul>
-                            </li>
-                        </ul> */}
+                                
                                     {!loading && (
                                         <Fragment>{isAuthenticated ? authTabs : guestTabs}</Fragment>
                                     )}
@@ -188,7 +156,7 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                                 </nav>
 
                                 {/* <!-- end main-menu --> */}
-                                <form method="post" className="mr-4">
+                                <form className="mr-4">
                                     <div className="form-group mb-0">
                                         <input className="form-control form--control form--control-bg-gray"
                                             id='search'
@@ -207,18 +175,6 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                                         </button>
 
                                     </div>
-
-                                    {/* <div className='ps-relative search-frame'>
-                        <input
-                            className='s-input s-input__search h100 search-box'
-                            autoComplete='off'
-                            type='text'
-                            name='search'
-                            maxLength='35'
-                            placeholder='Search...'
-                        />
-                        <Search />
-                        </div> */}
                                 </form>
 
                                 {!loading && (
@@ -226,13 +182,6 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                                         {isAuthenticated ? authLinks : guestLinks}
                                     </Fragment>
                                 )}
-                                {/* <Search onClick={() => setSearchState(!searchState)} /> */}
-                                {/* {searchState && <SearchBar />} */}
-                                {/* <div className="nav-right-button">
-                                    <Link to="/login" className="btn theme-btn theme-btn-outline mr-2"><i className="la la-sign-in mr-1"></i> Login</Link>
-                                    <Link to="/signup" className="btn theme-btn"><i className="la la-user mr-1"></i> Sign up</Link>
-                                </div> */}
-
                                 {/* <!-- end nav-right-button --> */}
                             </div>
                             {/* <!-- end menu-wrapper --> */}
@@ -251,39 +200,34 @@ const HeaderLight = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                         <li>
                             <Link to="#">Home</Link>
                             <ul className="sub-menu">
-                                <li><Link to="home-2.html">Home - main</Link></li>
+                                <li><Link to="/">Home - main</Link></li>
                             </ul>
                         </li>
-                        {/* <li>
-                <Link to="#">Pages</Link>
-                <ul className="sub-menu">
-                    <li><Link to="user-profile.html">user profile</Link></li>
-                    <li><Link to="notifications.html">Notifications</Link></li>
-                    <li><Link to="/askquestion">ask question</Link></li>
-                    <li><Link to="/question">question details</Link></li>
-                    <li><Link to="/about">about</Link></li>
-                    <li><Link to="error.html">page 404</Link></li>
-                </ul>
-            </li> */}
-                        {/* <li>
-                <Link to="#">blog</Link>
-                <ul className="sub-menu">
-                    <li><Link to="blog-single.html">blog detail</Link></li>
-                </ul>
-            </li> */}
+                        
                     </ul>
                     <div className="off-canvas-btn-box px-4 pt-5 text-center">
-                        <a href="#" className="btn theme-btn theme-btn-sm theme-btn-outline" data-toggle="modal" data-target="#loginModal"><i className="la la-sign-in mr-1"></i> Login</a>
+                        <Link to="/login" className="btn theme-btn theme-btn-sm theme-btn-outline" 
+                       // data-toggle="modal" data-target="#loginModal"
+                        ><i className="la la-sign-in mr-1"></i> Login</Link>
                         <span className="fs-15 fw-medium d-inline-block mx-2">Or</span>
-                        <a href="#" className="btn theme-btn theme-btn-sm" data-toggle="modal" data-target="#signUpModal"><i className="la la-plus mr-1"></i> Sign up</a>
+                        <Link to="/signup" className="btn theme-btn theme-btn-sm" data-toggle="modal" data-target="#signUpModal"><i className="la la-plus mr-1"></i> Sign up</Link>
                     </div>
                 </div>
                 {/* <!-- end off-canvas-menu --> */}
                 <div className="mobile-search-form">
                     <div className="d-flex align-items-center">
-                        <form method="post" className="flex-grow-1 mr-3">
+                        <form className="flex-grow-1 mr-3">
                             <div className="form-group mb-0">
-                                <input className="form-control form--control pl-40px" type="text" name="search" placeholder="Type your search words..." />
+                                <input 
+                                id='search'
+                                onSubmit={() => history.push('/questions')}
+                                className="form-control form--control pl-40px" 
+                                type="text" 
+                                name="search" 
+                                autoComplete='off'
+                                maxLength='35'
+                                placeholder="Type your search words..."
+                                 />
                                 <span className="la la-search input-icon"></span>
                             </div>
                         </form>

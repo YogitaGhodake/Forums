@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import UsersPage from "../../pages/UsersPage/UsersPage";
 
 const Pagination = ({
   total,
@@ -15,6 +16,8 @@ const Pagination = ({
     total % elementsPerPage === 0
       ? Math.floor(total / elementsPerPage)
       : Math.floor(total / elementsPerPage) + 1;
+
+  console.log("pages", pages)
 
   const handleChange = useCallback(
     (current) => {
@@ -34,14 +37,12 @@ const Pagination = ({
   const getPaginationItem = useCallback(
     (currentIdx, activeIdx) =>
       activeIdx === currentIdx + 1 ? (
-        <span class="s-pagination--item is-selected">{currentIdx + 1}</span>
+        <li className="page-item active"><a className="page-link" href="#">{currentIdx + 1}</a></li>
+        // <span className="s-pagination--item is-selected">{currentIdx + 1}</span>
       ) : (
-        <span
-          class="s-pagination--item"
+        <li className="page-item"
           onClick={() => handleChange(currentIdx + 1)}
-        >
-          {currentIdx + 1}
-        </span>
+        ><a className="page-link" href="#" >{currentIdx + 1}</a></li>
       ),
     [handleChange]
   );
@@ -79,15 +80,27 @@ const Pagination = ({
 
     // Add next button
     li.push([
-      <span
-        key="next-btn"
-        className={`s-pagination--item`}
-        onClick={
-          enableNextBtn ? () => handleChange(currentPage + 1) : undefined
-        }
+
+      <li className="page-item" 
+      key="next-btn"
+      onClick={
+        enableNextBtn ? () => handleChange(currentPage + 1) : undefined
+      }
       >
-        Next
-      </span>,
+                <a className="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true"><i className="la la-arrow-right"></i></span>
+                  <span className="sr-only">Next</span>
+                </a>
+              </li>
+      // <span
+      //   key="next-btn"
+      //   className={`s-pagination--item`}
+      //   onClick={
+      //     enableNextBtn ? () => handleChange(currentPage + 1) : undefined
+      //   }
+      // >
+      //   Next 
+      // </span>,
     ]);
 
     setItems(li);
@@ -109,8 +122,15 @@ const Pagination = ({
   // Only show if single page.
   if (!(hideOnSinglePage && pages === 1)) {
     return (
-      <div className="s-pagination" style={{ float: "right" }}>
-        {items}
+      <div className="">
+        <div className="pager pt-20px">
+          <nav aria-label="Page navigation example">
+            <ul className="pagination generic-pagination pr-1">
+              {items}
+            </ul>
+          </nav>
+          <p className="fs-13 pt-2"> Page no : {currentPage} of {total} results</p>
+        </div>
       </div>
     );
   }

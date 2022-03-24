@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {getTopPosts} from '../../redux/posts/posts.actions';
 import PostItem from '../../components/PostItem/PostItem.component';
 import LinkButton from '../../components/LinkButton/LinkButton.component';
-import HeaderLight from '../../../src/components2/Header/HeaderLight';
+import HeaderLight from '../../../src/components/Header/HeaderLight';
 import Footer from '../../../src/components2/Header/Footer';
 import Pagination from '../../components/Pagination/Pagination.component';
 
@@ -70,7 +70,7 @@ const QuestionsPage = ({getTopPosts, post: {posts, loading}}) => {
                                     </span>
                                         <div className="filter-option-box w-20">
                                             <select className="custom-select">
-                                                <option value="newest" value="selected">Newest </option>
+                                                <option defaultValue="newest" value="selected">Newest </option>
                                                 <option value="featured">Bountied (390)</option>
                                                 <option value="frequent">Frequent </option>
                                                 <option value="votes">Votes </option>

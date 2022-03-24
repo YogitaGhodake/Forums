@@ -101,7 +101,7 @@ export const addPost = (formData) => async (dispatch) => {
       type: ADD_POST,
       payload: res.data.data,
     });
-
+console.log("data==> 104", res.data.message,res)
     dispatch(setAlert(res.data.message, 'success'));
 
     dispatch(getPosts());

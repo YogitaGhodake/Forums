@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
-const TagBadge = ({tag_name, size, display, float, link, to}) => {
+const TagBadge = ({tag_name, size, display,link, to}) => {
   return (
     <Fragment>
-      <div className='tags-badge tag-link' style={{display, float}}>
+      <div className='tags-badge tag-link' >
         {to === true ? (
           <a className={`${size}`} to={link ? link : `/tags/${tag_name}`}>
             {tag_name}

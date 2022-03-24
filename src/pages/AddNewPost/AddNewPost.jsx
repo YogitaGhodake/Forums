@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components2/Header/Footer';
-import HeaderLight from '../../components2/Header/HeaderLight';
+import HeaderLight from '../../components/Header/HeaderLight';
 
 const AddNewPost = () => {
 
@@ -57,7 +57,7 @@ const AddNewPost = () => {
                                             <input type="checkbox" class="custom-control-input" id="agreeCheckBox"
                                             //  data-com.bitwarden.browser.user-edited="yes"
                                              />
-                                            <label class="custom-control-label custom--control-label" for="agreeCheckBox">By posting, you agreed to the <a href="terms-and-conditions.html" class="text-color hover-underline">Terms of Service </a> and <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
+                                            <label class="custom-control-label custom--control-label" htmlFor="agreeCheckBox">By posting, you agreed to the <a href="terms-and-conditions.html" class="text-color hover-underline">Terms of Service </a> and <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
                                         </div>
                                     </div>
                                     <div class="form-group mb-0">

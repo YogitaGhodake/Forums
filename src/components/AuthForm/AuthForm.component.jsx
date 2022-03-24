@@ -82,12 +82,12 @@ const AuthForm = ({ register, login, action}) => {
                   </div>
                   <div className="form-group login-form">
                     <label className="fs-14 text-black fw-medium lh-18 form-label s-label">
-                      Email
+                    Username
                     </label>
                     <input
                       type="text"
                       className="form-control form--control form-input s-input"
-                      placeholder="Email address"
+                      placeholder="Username"
                       name='username'
                       value={username}
                       onChange={(e) => onChange(e)}
@@ -126,15 +126,15 @@ const AuthForm = ({ register, login, action}) => {
                   <div className="form-group d-flex align-items-center justify-content-between">
                     <div className="custom-control custom-checkbox fs-14">
                       <input type="checkbox" className="custom-control-input" id="rememberMe" />
-                      <label className="custom-control-label custom--control-label" for="rememberMe">Remember me!</label>
+                      <label className="custom-control-label custom--control-label" htmlFor="rememberMe">Remember me!</label>
                     </div>
                     <Link to="recover-password.html" className="btn-text fs-14 hover-underline fw-regular">Forgot Password?</Link>
                   </div>
                   {/* <!-- end form-group --> */}
                   <div className="form-group">
                     <button
-                      id="submit-button"
-                      //"send-message-btn" 
+                      id="submit-button send-message-btn"
+                    // send-message-btn
                       className="btn theme-btn w-100"
                       name='submit-button'
                       type="submit"

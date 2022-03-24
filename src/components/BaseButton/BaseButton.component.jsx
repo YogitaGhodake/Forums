@@ -4,8 +4,8 @@ const BaseButton = ({text, selected, onClick}) => {
   return (
     <Fragment>
       <button
-        className={`s-btn s-btn__filled ${
-          selected === text ? 'is-selected' : ''
+        className={`s-btn s-btn__filled btn ${
+          selected === text ? 'is-selected active' : ''
         }`}
         style={{margin: '0'}}
         onClick={onClick}

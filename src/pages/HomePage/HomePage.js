@@ -54,9 +54,9 @@ class Home extends React.Component {
                                                 <div className="dropdown-menu-item mega-menu">
                                                     <ul className="row">
                                                         <li className="col-lg-3">
-                                                            <Link to="user-profile.html">user profile</Link>
-                                                            <Link to="/askquestion">ask question</Link>
-                                                            <Link to="question-details.html">question details</Link>
+                                                            <Link to="/users/:id">user profile</Link>
+                                                            <Link to="/add/question">ask question</Link>
+                                                            <Link to="/questions">question details</Link>
                                                             <Link to="/about">about</Link>
                                                             <Link to="/login">login</Link>
                                                             <Link to="/signup">sign up</Link>
@@ -65,8 +65,8 @@ class Home extends React.Component {
                                                             
                                                         </li>
                                                         <li className="col-lg-3">
-                                                            <Link to="user-list.html">user list <span className="badge bg-warning text-white">New</span></Link>
-                                                            <Link to="tags-list.html">tags list <span className="badge bg-warning text-white">New</span></Link>
+                                                            <Link to="/users">user list <span className="badge bg-warning text-white">New</span></Link>
+                                                            <Link to="/tags">tags list <span className="badge bg-warning text-white">New</span></Link>
                                                             <Link to="/addpost">add post <span className="badge bg-warning text-white">New</span></Link>
                                                             <Link to="error-2.html">page 404 2 <span className="badge bg-warning text-white">New</span></Link>
                                                         </li>
@@ -118,33 +118,15 @@ class Home extends React.Component {
                             <li>
                                 <Link to="#">Pages</Link>
                                 <ul className="sub-menu">
-                                    <li><Link to="user-profile.html">user profile</Link></li>
-                                    {/* <li><Link to="notifications.html">Notifications</Link></li> */}
-                                    {/* <li><Link to="referrals.html">Referrals</Link></li>
-                                    <li><Link to="setting.html">settings</Link></li> */}
-                                    <li><Link to="/askquestion">ask question</Link></li>
-                                    <li><Link to="question-details.html">question details</Link></li>
+                                    <li><Link to="/users/:id">user profile</Link></li>
+                                    <li><Link to="/add/question">ask question</Link></li>
+                                    <li><Link to="/questions">question details</Link></li>
                                     <li><Link to="/about">about</Link></li>
-                                    {/* <li><Link to="revisions.html">revisions</Link></li> */}
-                                    {/* <li><Link to="category.html">category</Link></li> */}
-                                    {/* <li><Link to="companies.html">companies</Link></li>
-                                    <li><Link to="company-details.html">company details</Link></li>
-                                    <li><Link to="careers.html">careers</Link></li>
-                                    <li><Link to="career-details.html">career details</Link></li>
-                                    <li><Link to="contact.html">contact</Link></li>
-                                    <li><Link to="faq.html">FAQs</Link></li>
-                                    <li><Link to="pricing-table.html">pricing tables</Link></li>
-                                    <li><Link to="error.html">page 404</Link></li>
-                                    <li><Link to="terms-and-conditions.html">Terms & conditions</Link></li>
-                                    <li><Link to="privacy-policy.html">privacy policy</Link></li> */}
                                 </ul>
                             </li>
                             <li>
                                 <Link to="#">blog</Link>
                                 <ul className="sub-menu">
-                                    {/* <li><Link to="blog-grid-no-sidebar.html">grid no sidebar</Link></li>
-                                    <li><Link to="blog-left-sidebar.html">blog left sidebar</Link></li>
-                                    <li><Link to="blog-right-sidebar.html">blog right sidebar</Link></li> */}
                                     <li><Link to="blog-single.html">blog detail</Link></li> 
                                 </ul>
                             </li>
@@ -331,7 +313,7 @@ class Home extends React.Component {
 <section className="client-logo-area section--padding bg-radial-gradient-gray">
     <div className="container">
         <div className="client-logo-box">
-            <h3 className="fs-21 text-center text-gray">Thousands of organizations around the globe use Disilab for Teams</h3>
+            <h3 className="fs-21 text-center text-gray">Thousands of organizations around the globe use Forums for Teams</h3>
             <div className="row justify-content-center text-center pt-50px">
                 <div className="col-lg-3 responsive-column-half">
                     <div className="client-logo-item mb-30px bg-white shadow-sm p-3 rounded-rounded hover-y">
@@ -385,7 +367,7 @@ class Home extends React.Component {
     <div className="container">
         <div className="text-center">
             <h2 className="section-title pb-3">For developers, by developers</h2>
-            <p className="section-desc w-50 mx-auto">Disilab is an open community for anyone that codes. We help you get answers
+            <p className="section-desc w-50 mx-auto">Forums is an open community for anyone that codes. We help you get answers
                 to your toughest coding questions, share knowledge with your coworkers in private,
                 and find your next dream job.
             </p>
@@ -693,7 +675,7 @@ class Home extends React.Component {
 <section className="package-area section--padding bg-vertical-gradient-gray">
     <div className="container">
         <div className="text-center">
-            <h2 className="section-title pb-3">Unlock siloed knowledge with <br /> Disilab for Teams</h2>
+            <h2 className="section-title pb-3">Unlock siloed knowledge with <br /> Forums for Teams</h2>
             <p className="section-desc w-50 mx-auto pb-4">This is just a simple text made for this unique and awesome template,
                 you can replace it with any text.
             </p>
@@ -717,7 +699,7 @@ class Home extends React.Component {
                         <ul className="generic-list-item package-list pb-4">
                             <li><i className="la la-check text-success"></i> Free 30 day trial</li>
                             <li><i className="la la-check text-success"></i> ChatOps integrations - Slack & Microsoft Teams</li>
-                            <li><i className="la la-check text-success"></i> Your own private space hosted on disilab.com</li>
+                            <li><i className="la la-check text-success"></i> Your own private space hosted on Forums.com</li>
                             <li><i className="la la-check text-success"></i> Fully searchable archive</li>
                         </ul>
                         <Link to="#" className="btn theme-btn theme-btn-outline w-100">Start your free trial <i className="la la-arrow-right icon ml-1"></i></Link>
@@ -842,7 +824,7 @@ class Home extends React.Component {
                     <div className="info-body">
                         <h5 className="pb-4 fs-28 fw-bold">Hire your technical talent</h5>
                         <p className="pb-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                        <Link to="talent.html" className="btn theme-btn">Disilab Talent <i className="la la-arrow-right icon ml-1"></i></Link>
+                        <Link to="talent.html" className="btn theme-btn">Forums Talent <i className="la la-arrow-right icon ml-1"></i></Link>
                     </div>
                 </div>
             </div>
@@ -869,7 +851,7 @@ class Home extends React.Component {
                     <div className="info-body">
                         <h5 className="pb-4 fs-28 fw-bold">Reach developers worldwide</h5>
                         <p className="pb-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                        <Link to="advertising.html" className="btn theme-btn">Disilab Advertising <i className="la la-arrow-right icon ml-1"></i></Link>
+                        <Link to="advertising.html" className="btn theme-btn">Forums Advertising <i className="la la-arrow-right icon ml-1"></i></Link>
                     </div>
                 </div>
             </div>
@@ -891,7 +873,7 @@ class Home extends React.Component {
 <section className="get-started-area section--padding">
     <div className="container">
         <div className="text-center">
-            <h2 className="section-title">Learn and grow with Disilab</h2>
+            <h2 className="section-title">Learn and grow with Forums</h2>
         </div>
         <div className="row pt-50px">
             <div className="col-lg-3 responsive-column-half">
@@ -1087,8 +1069,8 @@ class Home extends React.Component {
             <div className="modal-body">
                 <form method="post">
                     <div className="form-group">
-                        <label className="fs-14 text-black fw-medium lh-18">Email</label>
-                        <input className="form-control form--control" type="email" name="email" placeholder="Email address" />
+                        <label className="fs-14 text-black fw-medium lh-18">Username</label>
+                        <input className="form-control form--control" type="username" name="username" placeholder="Username" />
                     </div>
                     <div className="form-group">
                         <label className="fs-14 text-black fw-medium lh-18">Password</label>
@@ -1130,7 +1112,7 @@ class Home extends React.Component {
                     <div className="form-group d-flex align-items-center justify-content-between">
                         <div className="custom-control custom-checkbox fs-14">
                             <input type="checkbox" className="custom-control-input" id="rememberMe" />
-                            <label className="custom-control-label custom--control-label" for="rememberMe">Remember me!</label>
+                            <label className="custom-control-label custom--control-label" fhtmlFor="rememberMe">Remember me!</label>
                         </div>
                         <Link to="#" className="lost-pass-btn fs-14 hover-underline">Forgot Password?</Link>
                     </div>
@@ -1140,7 +1122,7 @@ class Home extends React.Component {
                         </button>
                     </div>
                     <p className="create-account-text text-right fs-14 pt-1">
-                        New to disilab? <a className="signup-btn text-color hover-underline" href="#">Create account</a>
+                        New to Forums? <a className="signup-btn text-color hover-underline" href="#">Create account</a>
                     </p>
                     <div className="icon-element my-4 mx-auto shadow-sm fs-25">Or</div>
                     <div className="text-center">
@@ -1172,8 +1154,8 @@ class Home extends React.Component {
                         <input className="form-control form--control" type="text" name="text" placeholder="Your name"/>
                     </div>
                     <div className="form-group">
-                        <label className="fs-14 text-black fw-medium lh-18">Email</label>
-                        <input className="form-control form--control" type="email" name="email" placeholder="Email address"/>
+                        <label className="fs-14 text-black fw-medium lh-18">Username</label>
+                        <input className="form-control form--control" type="uername" name="username" placeholder="Username"/>
                     </div>
                     <div className="form-group">
                         <label className="fs-14 text-black fw-medium lh-18">Password</label>
@@ -1191,7 +1173,7 @@ class Home extends React.Component {
                     <div className="form-group">
                         <div className="custom-control custom-checkbox fs-14">
                             <input type="checkbox" className="custom-control-input" id="agreeCheckBox" />
-                            <label className="custom-control-label custom--control-label" for="agreeCheckBox">By signing up, you agree to our <a href="privacy-policy.html" className="text-color hover-underline">Privacy Policy.</a></label>
+                            <label className="custom-control-label custom--control-label" htmlFor="agreeCheckBox">By signing up, you agree to our <a href="privacy-policy.html" className="text-color hover-underline">Privacy Policy.</a></label>
                         </div>
                     </div>
                     <div className="btn-box">
@@ -1200,7 +1182,7 @@ class Home extends React.Component {
                         </button>
                     </div>
                     <p className="create-account-text text-right fs-14">
-                        Already on disilab? <a className="login-btn text-color hover-underline" href="">Log in</a>
+                        Already on Forums? <a className="login-btn text-color hover-underline" href="">Log in</a>
                     </p>
                     <div className="icon-element my-4 mx-auto shadow-sm fs-25">Or</div>
                     <div className="text-center">

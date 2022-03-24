@@ -14,8 +14,9 @@
   min-width: 0;
 }
 
-.post-cell pre {
+.post-cell .question-post-body pre {
   color: var(--black-800);
+  background: #f6f6f6 !important;
 }
 
 .post-cell .post-text {
@@ -23,7 +24,7 @@
   margin-bottom: 5px;
   font-size: 15px;
   line-height: 1.3;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #242729;
 }
 

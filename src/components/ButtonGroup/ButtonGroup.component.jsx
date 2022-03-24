@@ -5,13 +5,14 @@ const ButtonGroup = ({buttons, selected, setSelected}) => {
   return (
     <Fragment>
       <div className='grid--cell'>
-        <div className=' grid s-btn-group js-filter-btn'>
+        <div className='btn-group btn--group mb-3'>
           {buttons.map((button) => (
             <BaseButton
               key={button}
               text={button}
               selected={selected}
               onClick={() => setSelected(button)}
+             
             />
           ))}
         </div>

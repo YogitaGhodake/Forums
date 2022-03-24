@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Footer from '../../components2/Header/Footer';
-import HeaderLight from '../../components2/Header/HeaderLight';
+import HeaderLight from '../../components/Header/HeaderLight';
 import { setAlert } from '../../redux/alert/alert.actions';
 import Caption from './Caption/Caption.component';
 import AuthForm from '../../components/AuthForm/AuthForm.component';

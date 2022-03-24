@@ -5,9 +5,9 @@ import './VoteCell.styles.scss';
 const VoteCell = ({answerCount, commentCount}) => {
   return (
     <Fragment>
-      <div className='vote-cell fc-black-800'>
+      <div className='vote-cell votes votes-styled w-auto'>
         <div className='stats'>
-          <div className='vote'>
+          <div className='vote' id="vote">
             <span className='vote-count'>{answerCount}</span>
             <div className='count-text'>answers</div>
           </div>

@@ -79,6 +79,8 @@ const PostItem = ({
         </div>
         <div className='tags'>
         <TagBadge tag_name={tagname} size={'s-tag'} float={'left'} />
+        </div>
+        <div className=''>
         <UserCard
           created_at={created_at}
           user_id={user_id}

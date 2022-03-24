@@ -133,7 +133,7 @@ const Register = ()=> {
                             <div className="d-flex align-items-center">
                                 <div className="custom-control custom-checkbox fs-13 mr-4">
                                     <input type="checkbox" className="custom-control-input" id="opt-in"/>
-                                    <label className="custom-control-label custom--control-label lh-18" for="opt-in">Opt-in to receive occasional product updates, user research invitations, company announcements, and digests.</label>
+                                    <label className="custom-control-label custom--control-label lh-18" htmlFor="opt-in">Opt-in to receive occasional product updates, user research invitations, company announcements, and digests.</label>
                                 </div>
                                 <button type="button" className="popover-trigger btn border border-gray py-1 lh-18 px-2" data-container="body" data-toggle="popover" data-placement="top">
                                 <svg aria-hidden="true" width={14} height={14} >
