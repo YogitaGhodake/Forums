@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import {Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Footer from '../../components2/Header/Footer';
+import Footer from '../../components/Header/Footer';
 import HeaderLight from '../../components/Header/HeaderLight';
 import AuthForm from '../../components/AuthForm/AuthForm.component';
 import Caption from './Caption/Caption.component';

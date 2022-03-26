@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import PageTitle from '../../components/PageTitle/PageTitle.component';
 import LinkButton from '../../components/LinkButton/LinkButton.component';
 import Spinner from '../../components/Spinner/Spinner.component';
-import Footer from '../../components2/Header/Footer';
+import Footer from '../../components/Header/Footer';
 import HeaderLight from '../../components/Header/HeaderLight';
 import TextHeader1 from '../Post/TextHeader1';
 import SidebarInQuestions from '../Post/SidebarInQuestions';

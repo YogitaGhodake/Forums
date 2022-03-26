@@ -8,13 +8,12 @@ import PostCell from './PostCell/PostCell.component';
 
 
 
-const QuestionSection2 = ({
+const QuestionSection = ({
     post: {
         post: { id, answer_count, comment_count },
     },
     postId, post
 }) => {
-
 
     return (
         <Fragment>
@@ -67,7 +66,7 @@ const QuestionSection2 = ({
     );
 };
 
-QuestionSection2.propTypes = {
+QuestionSection.propTypes = {
     post: PropTypes.object.isRequired,
 };
 
@@ -75,4 +74,4 @@ const mapStateToProps = (state) => ({
     post: state.post,
 });
 
-export default connect(mapStateToProps, null)(QuestionSection2);
+export default connect(mapStateToProps, null)(QuestionSection);

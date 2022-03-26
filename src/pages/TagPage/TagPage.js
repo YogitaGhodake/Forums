@@ -13,7 +13,7 @@ import Spinner from '../../components/Spinner/Spinner.component';
 import PageTitle from '../../components/PageTitle/PageTitle.component';
 import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
 import HeaderLight from '../../components/Header/HeaderLight';
-import Footer from '../../components2/Header/Footer';
+import Footer from '../../components/Header/Footer';
 
 
 

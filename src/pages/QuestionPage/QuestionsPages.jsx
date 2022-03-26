@@ -1,12 +1,14 @@
-import React, { Fragment, useEffect, useState} from 'react';
-import { Link } from 'react-router-dom'; 
-import {connect} from 'react-redux';
+import React, { Fragment, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {getTopPosts} from '../../redux/posts/posts.actions';
+import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
+import { getTopPosts } from '../../redux/posts/posts.actions';
 import PostItem from '../../components/PostItem/PostItem.component';
 import LinkButton from '../../components/LinkButton/LinkButton.component';
-import HeaderLight from '../../../src/components/Header/HeaderLight';
-import Footer from '../../../src/components2/Header/Footer';
+import HeaderLight from '../../components/Header/HeaderLight';
+import Footer from '../../components/Header/Footer';
 import Pagination from '../../components/Pagination/Pagination.component';
 
 // import Spinner from '../../components/Spinner/Spinner.component';
@@ -14,22 +16,26 @@ import Pagination from '../../components/Pagination/Pagination.component';
 const itemsPerPage = 12;
 const showInline = 5;
 
-const QuestionsPage = ({getTopPosts, post: {posts, loading}}) => {
+const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
     useEffect(() => {
-      getTopPosts();
+        getTopPosts();
     }, [getTopPosts]);
-  
+
+
+    const [sortType, setSortType] = useState('Newest');
+    let searchQuery = new URLSearchParams(useLocation().search).get('search');
+
     const [currentPosts, setCurrentPosts] = useState([]);
-  
+
     const handlePaginationChange = (currentPage) => {
-      setCurrentPosts(posts.slice((currentPage - 1) * itemsPerPage, (currentPage - 1) * itemsPerPage + itemsPerPage));
+        setCurrentPosts(posts.slice((currentPage - 1) * itemsPerPage, (currentPage - 1) * itemsPerPage + itemsPerPage));
     };
 
     return loading || posts === null ? (
         <></> // <Spinner type='page' width='75px' height='200px' />
-      ) : (
+    ) : (
         <Fragment>
-        <HeaderLight />
+            <HeaderLight />
             <div className="question-area">
                 <div className="container">
                     <div className="row">
@@ -54,53 +60,57 @@ const QuestionsPage = ({getTopPosts, post: {posts, loading}}) => {
                                 <div className="filters pb-4 pl-3">
                                     <div className="d-flex flex-wrap align-items-center justify-content-between pb-3">
                                         <h3 className="fs-22 fw-medium">All Questions</h3>
-                                         {/* <div className='questions-btn'> */}
+                                        {/* <div className='questions-btn'> */}
                                         {/* <LinkButton className="btn theme-btn theme-btn-sm"
                                             text={'Ask Question'}
                                             link={'/askquestion'} */}
-                                            
-                                            {/* // type={'s-btn__primary'}
+
+                                        {/* // type={'s-btn__primary'}
                                             />   */}
-                                          <Link to="/add/question" className="btn theme-btn theme-btn-sm">Ask Question</Link> 
-                                    {/* </div> */}
+                                        <Link to="/add/question" className="btn theme-btn theme-btn-sm">Ask Question</Link>
+                                        {/* </div> */}
                                     </div>
                                     <div className="d-flex flex-wrap align-items-center justify-content-between questions-tabs">
-                                    <span>
-                                        {new Intl.NumberFormat('en-IN').format(posts.length)} questions
-                                    </span>
-                                        <div className="filter-option-box w-20">
-                                            <select className="custom-select">
+                                        <span>
+                                            {new Intl.NumberFormat('en-IN').format(posts.length)} questions
+                                        </span>
+                                        <div className="filter-option-box">
+                                            <ButtonGroup
+                                                buttons={['Newest', 'Top', 'Views', 'Oldest']}
+                                                selected={sortType}
+                                                setSelected={setSortType}
+                                            />
+                                            {/* <select className="custom-select">
                                                 <option defaultValue="newest" value="selected">Newest </option>
                                                 <option value="featured">Bountied (390)</option>
                                                 <option value="frequent">Frequent </option>
                                                 <option value="votes">Votes </option>
                                                 <option value="active">Active </option>
                                                 <option value="unanswered">Unanswered </option>
-                                            </select>
+                                            </select> */}
                                         </div>
                                         {/* <!-- end filter-option-box --> */}
                                     </div>
 
                                 </div>
-                                 <div className="questions">
-                                <div className="">
-                                {/* <div className="votes text-center votes-2"> */}
-                                <div className="questions">
-                                        {currentPosts.map((post) => (
-                                            <PostItem key={post.id} post={post} />
-                                        ))}
+                                <div className="questions-snippet border-top border-top-gray">
+                                
+                                     <div className="questions">
+                                            {currentPosts.map((post) => (
+                                                <PostItem key={post.id} post={post} />
+                                            ))}
                                         </div>
                                         <Pagination
-                                        total={posts.length}
-                                        elementsPerPage={itemsPerPage}
-                                        showInline={showInline}
-                                        handlePaginationChange={(currentPage) => handlePaginationChange(currentPage)}
-                                        hideOnSinglePage={true}
+                                            total={posts.length}
+                                            elementsPerPage={itemsPerPage}
+                                            showInline={showInline}
+                                            handlePaginationChange={(currentPage) => handlePaginationChange(currentPage)}
+                                            hideOnSinglePage={true}
                                         />
-                                </div>
-                                {/* </div> */}
+                                   
                                 </div>
                                 
+
                                 {/* <!-- end filters --> */}
                                 <div className="questions-snippet border-top border-top-gray">
                                     <div className="media media-card rounded-0 shadow-none mb-0 bg-transparent p-3 border-bottom border-bottom-gray">
@@ -445,10 +455,10 @@ const QuestionsPage = ({getTopPosts, post: {posts, loading}}) => {
 QuestionsPage.propTypes = {
     getTopPosts: PropTypes.func.isRequired,
     post: PropTypes.object.isRequired,
-  };
-  
-  const mapStateToProps = (state) => ({
-    post: state.post,
-  });
+};
 
-  export default connect(mapStateToProps, { getTopPosts })(QuestionsPage);
+const mapStateToProps = (state) => ({
+    post: state.post,
+});
+
+export default connect(mapStateToProps, { getTopPosts })(QuestionsPage);

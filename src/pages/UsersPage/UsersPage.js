@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getUsers } from '../../redux/users/users.actions';
 import handleSorting from '../../services/handleSorting';
-import Footer from '../../components2/Header/Footer';
+import Footer from '../../components/Header/Footer';
 import HeaderLight from '../../components/Header/HeaderLight';
 
 // import './UsersPage.styles.scss';
@@ -102,7 +102,7 @@ const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
 
                                 <div className="col-lg-3 responsive-column-half">
                              
-                                    <div className="media media-card p-3 animate__animated animate__bounce">
+                                    <div className="media media-card p-3 animate__animated animate__fadeIn">
                                         <Link to={`/users/${user.id}`} className="media-img d-inline-block flex-shrink-0">
                                             <img src={`https://secure.gravatar.com/avatar/${user.id}?s=164&d=identicon`} />
                                         </Link>

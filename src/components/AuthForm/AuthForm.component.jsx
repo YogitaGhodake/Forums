@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../redux/auth/auth.actions';
 import { register } from '../../redux/auth/auth.actions';
+import Caption from '../../pages/Login/Caption/Caption.component';
 
 
 
@@ -58,19 +59,20 @@ const AuthForm = ({ register, login, action}) => {
     <Fragment>
       {/* {action === 'Sign up' ?<Caption/> : */}
       <div className="login-area pt-100px pb-80px position-relative">
-        <div className="container form-container">
+        <div className="container">
           <form action="#" className="card card-item login-form" onSubmit={(e) => onSubmit(e)}>
             <div className="card-body row p-0">
-              {/* <div className="col-lg-6">
-                <div className="form-content p-4 h-100 d-flex align-items-center justify-content-center flex-column bg-diagonal-gradient-primary radius-top-left-8 radius-bottom-left-8 text-center">
+               <div className="col-lg-6">
+                    
+                {/* <div className="form-content p-4 h-100 d-flex align-items-center justify-content-center flex-column bg-diagonal-gradient-primary radius-top-left-8 radius-bottom-left-8 text-center">
                   <h3 className="fs-35 pb-3 fw-bold text-white">Good to see you again</h3>
                   <p className="text-white fs-18">Log in with your information that you entered
                     <br /> during your registration.
                   </p>
                   <p className="text-white text-center pt-60px pb-3">Don't have an account?</p>
                   <Link to="/signup" className="btn theme-btn theme-btn-white px-5 lh-24">Sign up</Link>
-                </div>
-              </div> */}
+                </div> */}
+              </div> 
               {/* <!-- end col-lg-6 --> */}
               <div className="col-lg-5 mx-auto">
                 <div className="form-action-wrapper py-5">
@@ -210,10 +212,10 @@ const AuthForm = ({ register, login, action}) => {
             {/* <!-- end row --> */}
           </form>
           <p className="text-black text-center fs-15">Don’t have an account?
-            <Link to="/signup" className="text-color hover-underline">Sign up</Link></p>
+            <Link to="/signup" className="text-color hover-underline"> Sign up</Link></p>
         </div>
 
-        <div className='fs-caption license fc-black-500'>
+        <div className='fs-caption license fc-black-500 hide'>
           By clicking “{action}”, you agree to our{' '}
           <Link
             to='https://stackoverflow.com/legal/terms-of-service/public'
@@ -239,7 +241,7 @@ const AuthForm = ({ register, login, action}) => {
           <input type='hidden' name='legalLinksShown' value='1' />
         </div>
 
-        <div className='redirects fc-black-500'>
+        <div className='redirects fc-black-500 hide'>
           {action === 'Sign up' ? signUpLink : logInLink}
           <div>
             Are you an employer?{' '}
@@ -262,6 +264,8 @@ const AuthForm = ({ register, login, action}) => {
           </div>
         </div>
         {/* <!-- end container --> */}
+
+        
         <svg
           className="position-absolute bottom-0 left-0 w-100 z-index-n1"
           viewBox="0 0 1440 490"

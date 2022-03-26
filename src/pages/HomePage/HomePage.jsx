@@ -42,7 +42,7 @@ class Home extends React.Component {
                                         <ul>
                                             <li>
                                             {/* <Link to="/register"> Sign Up </Link> */}
-                                                <Link to="#">Home <i className="la la-angle-down fs-11"></i></Link>
+                                                <Link to="/">Home <i className="la la-angle-down fs-11"></i></Link>
                                                 <ul className="dropdown-menu-item">
                                                     {/* <li><Link to="/">Home - landing</Link></li> */}
                                                     <li><Link to="/">Home - main</Link></li>
@@ -83,7 +83,7 @@ class Home extends React.Component {
                                         {/* <!-- end ul --> */}
                                     </nav>
                                     {/* <!-- end main-menu --> */}
-                                    <form method="post" className="mr-4">
+                                    <form className="mr-4">
                                         <div className="form-group mb-0">
                                             <input className="form-control form--control form--control-bg-gray text-white" type="text" name="search" placeholder="Type your search words..." />
                                                 <button className="form-btn text-white-50" type="button"><i className="la la-search"></i></button>

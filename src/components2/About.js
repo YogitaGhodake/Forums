@@ -1,5 +1,5 @@
-import React from 'react'
-import Footer from './Header/Footer'
+import React from 'react';
+import Footer from '../components/Header/Footer';
 
 
 function About() {

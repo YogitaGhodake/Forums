@@ -9,19 +9,19 @@ import LinkButton from '../../components/LinkButton/LinkButton.component';
 import Spinner from '../../components/Spinner/Spinner.component';
 import AnswerSection from '../Post/AnswerSection/AnswerSection';
 import QuestionSection from './QuestionSection/QuestionSection';
-import Footer from '../../components2/Header/Footer';
+import Footer from '../../components/Header/Footer';
 import HeaderLight from '../../components/Header/HeaderLight';
 import TextHeader1 from './TextHeader1';
 import SidebarInQuestions from './SidebarInQuestions';
 
 
 
-const Post = ({getPost, post: {post, loading}}) => {
+const Post = ({ getPost, post: { post, loading } }) => {
     useEffect(() => {
         getPost(params.id);
         // eslint-disable-next-line
     }, [getPost]);
-    
+
     const params = useParams();
 
     // console.log("PageTitle===> 22 ", title?.title?.PageTitle);
@@ -32,14 +32,9 @@ const Post = ({getPost, post: {post, loading}}) => {
 
     ) :
         (
-
-            <Fragment>
-
-
-                <HeaderLight />
+         <Fragment>
+             <HeaderLight />
                 <TextHeader1 />
-
-
                 <section className="question-area pt-40px pb-40px">
                     <div className="container">
                         <div className="row">
@@ -55,13 +50,13 @@ const Post = ({getPost, post: {post, loading}}) => {
                             </div>{/* end col-lg-3 */}
                         </div>{/* end row */}
                     </div>{/* end container */}
-                    
+
                 </section>
                 <Footer />
             </Fragment>
 
 
-  );
+        );
 };
 
 

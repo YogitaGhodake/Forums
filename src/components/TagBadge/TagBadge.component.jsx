@@ -4,13 +4,13 @@ import {Link} from 'react-router-dom';
 const TagBadge = ({tag_name, size, display,link, to}) => {
   return (
     <Fragment>
-      <div className='tags-badge tag-link' >
+      <div className='tags-badge heheh' >
         {to === true ? (
-          <a className={`${size}`} to={link ? link : `/tags/${tag_name}`}>
+          <a className={ `${size + " tag-link"}` } to={link ? link : `/tags/${tag_name}`}>
             {tag_name}
           </a>
         ) : (
-          <Link className={`${size}`} to={link ? link : `/tags/${tag_name}`}>
+          <Link className={ `${size + " tag-link"}`} to={link ? link : `/tags/${tag_name}`}>
             {tag_name}
           </Link>
         )}

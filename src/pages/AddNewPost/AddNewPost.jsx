@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components2/Header/Footer';
+import Footer from '../../components/Header/Footer';
 import HeaderLight from '../../components/Header/HeaderLight';
 
 const AddNewPost = () => {

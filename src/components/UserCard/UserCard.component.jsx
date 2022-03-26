@@ -15,18 +15,18 @@ const UserCard = ({
   return (
     <Fragment>
       {/* design */}
-      <div className="media media-card user-media owner align-items-center">
-        <a href="user-profile.html" className="media-img d-block">
+      <div className="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
+        <Link to="/users/:id" className="media-img d-block">
           <img 
            src={`https://secure.gravatar.com/avatar/${user_id}?s=164&d=identicon`}
           alt="avatar" />
-        </a>
+        </Link>
         <div className="media-body d-flex flex-wrap align-items-center justify-content-between">
           <div>
-            <h5 className="pb-1"><a href={`/users/${user_id}`}>
+            <h5 className="pb-1"><Link to={`/users/${user_id}`}>
               
             {username}
-              </a></h5>
+              </Link></h5>
             
           </div>
           <small className="meta d-block text-right">

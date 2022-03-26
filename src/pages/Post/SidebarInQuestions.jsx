@@ -1,6 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addAnswer } from '../../redux/answers/answers.actions';
 
-const SidebarInQuestions = () => {
+
+const SidebarInQuestions = ({ addAnswer, auth, postId }) => {
+    const [formData, setFormData] = useState({
+        text: '',
+    });
     return (
         <div className="sidebar">
             <div className="card card-item">
@@ -191,7 +198,11 @@ const SidebarInQuestions = () => {
                 </div>
             </div>{/* end ad-card */}
         </div>
-    )
-}
+    );
+};
 
-export default SidebarInQuestions
+SidebarInQuestions.propTypes = {   
+    addAnswer: PropTypes.func.isRequired,
+};
+
+export default connect(null, { addAnswer })(SidebarInQuestions);
