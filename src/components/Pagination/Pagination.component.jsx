@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 import UsersPage from "../../pages/UsersPage/UsersPage";
 
 const Pagination = ({
@@ -65,6 +66,7 @@ const Pagination = ({
       }
     }
 
+    
     // Add menu items with dots and last item.
     if (pages > showInline) {
       li.push([
@@ -87,10 +89,10 @@ const Pagination = ({
         enableNextBtn ? () => handleChange(currentPage + 1) : undefined
       }
       >
-                <a className="page-link" href="#" aria-label="Next">
+                <Link className="page-link" to="#" aria-label="Next">
                   <span aria-hidden="true"><i className="la la-arrow-right"></i></span>
                   <span className="sr-only">Next</span>
-                </a>
+                </Link>
               </li>
       // <span
       //   key="next-btn"

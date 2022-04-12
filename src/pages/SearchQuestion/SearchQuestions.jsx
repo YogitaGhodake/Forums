@@ -1,37 +1,42 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import React, {Fragment, useEffect, useState} from 'react';
+import {useLocation, Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
-import { getTopPosts } from '../../redux/posts/posts.actions';
-import PostItem from '../../components/PostItem/PostItem.component';
-import Footer from '../../components/Header/Footer';
-import Pagination from '../../components/Pagination/Pagination.component';
-import PageTitle from '../../components/PageTitle/PageTitle.component';
-import Spinner from '../../components/Spinner/Spinner.component';
+import {getPosts} from '../../redux/posts/posts.actions';
+import handleSorting from '../../services/handleSorting';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Header/Footer';
+import PostItem from '../../components/PostItem/PostItem.component';
+import Spinner from '../../components/Spinner/Spinner.component';
+import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
+import SearchBox from '../../components/SearchBox/SearchBox.component';
+import PageTitle from '../../components/PageTitle/PageTitle.component';
 
-const itemsPerPage = 5;
+import Pagination from '../../components/Pagination/Pagination.component';
+
+
+const itemsPerPage = 12;
 const showInline = 5;
 
-const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
+
+ const SearchQuestions = ({getPosts, post: {posts, loading}}) => {
     useEffect(() => {
-        getTopPosts();
-    }, [getTopPosts]);
+        getPosts();
+      }, [getPosts]);
 
-
-    const [sortType, setSortType] = useState('Newest');
-    let searchQuery = new URLSearchParams(useLocation().search).get('search');
-
-    const [currentPosts, setCurrentPosts] = useState([]);
-
-    const handlePaginationChange = (currentPage) => {
+      const [sortType, setSortType] = useState('Newest');
+      let searchQuery = new URLSearchParams(useLocation().search).get('search');
+    
+      const [currentPosts, setCurrentPosts] = useState([]);
+    
+      const handlePaginationChange = (currentPage) => {
         setCurrentPosts(posts.slice((currentPage - 1) * itemsPerPage, (currentPage - 1) * itemsPerPage + itemsPerPage));
-    };
+      };
+    
+console.log("searchQuery", searchQuery,currentPosts,"currentPosts" );
 
     return loading || posts === null ? (
-         <Spinner type='page' width='75px' height='200px' />
+     <Spinner type='page' width='75px' height='200px' />
     ) : (
         <Fragment>
             <Header dark={false} />
@@ -42,8 +47,8 @@ const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
       ) : (
         ''
       )}
-            <div className="question-area">
-                <div className="container">
+        <div className="question-area">
+            <div className="container">
                     <div className="row">
                         <div className="col-lg-2 pr-0">
                             <div className="sidebar position-sticky top-0 pt-40px">
@@ -68,14 +73,31 @@ const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
                                         <h3 className="fs-22 fw-medium">
                                         {searchQuery ? 'Search Results' : 'All Questions'}
                                         </h3>
+                                        {/* <div className='questions-btn'> */}
+                                        {/* <LinkButton className="btn theme-btn theme-btn-sm"
+                                            text={'Ask Question'}
+                                            link={'/askquestion'} */}
+
+                                        {/* // type={'s-btn__primary'}
+                                            />   */}
                                         <Link to="/add/question" className="btn theme-btn theme-btn-sm">Ask Question</Link>
                                         {/* </div> */}
                                     </div>
+                                    {searchQuery ? (
+                                    <div className='search-questions'>
+                                        <span style={{color: '#acb2b8', fontSize: '12px'}}>
+                                        Results for {searchQuery}
+                                        </span>
+                                        {/* <SearchBox placeholder={'Search...'} name={'search'} pt={'mt8'} /> */}
+                                    </div>
+                                    ) : (
+                                    ''
+                                    )}
                                     <div className="d-flex flex-wrap align-items-center justify-content-between questions-tabs">
                                         <span>
                                             {new Intl.NumberFormat('en-IN').format(posts.length)} questions
                                         </span>
-                                        <div className="filter-option-box hide">
+                                        <div className="filter-option-box">
                                             <ButtonGroup
                                                 buttons={['Newest', 'Top', 'Views', 'Oldest']}
                                                 selected={sortType}
@@ -97,9 +119,14 @@ const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
                                 <div className="questions-snippet border-top border-top-gray">
                                 
                                      <div className="questions">
-                                            {currentPosts.map((post) => (
-                                                <PostItem key={post.id} post={post} />
-                                            ))}
+                                     {currentPosts
+                                        .filter((post) =>
+                                        post.title.toLowerCase().includes(searchQuery ? searchQuery : '')
+                                        )
+                                        ?.sort(handleSorting(sortType))
+                                        .map((post) => (
+                                        <PostItem key={post.id} post={post} />
+                                        ))}
                                         </div>
                                    
                                 </div>
@@ -108,7 +135,9 @@ const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
                                             total={posts.length}
                                             elementsPerPage={itemsPerPage}
                                             showInline={showInline}
-                                            handlePaginationChange={(currentPage) => handlePaginationChange(currentPage)}
+                                            handlePaginationChange={(currentPage) => 
+                                            handlePaginationChange(currentPage)
+                                        }
                                             hideOnSinglePage={true}
                                   />
                             </div>
@@ -284,14 +313,13 @@ const QuestionsPage = ({ getTopPosts, post: { posts, loading } }) => {
         </Fragment>
     );
 };
-
-QuestionsPage.propTypes = {
-    getTopPosts: PropTypes.func.isRequired,
+SearchQuestions.propTypes = {
+    getPosts: PropTypes.func.isRequired,
     post: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
+  };
+  
+  const mapStateToProps = (state) => ({
     post: state.post,
-});
-
-export default connect(mapStateToProps, { getTopPosts })(QuestionsPage);
+  });
+  
+  export default connect(mapStateToProps, {getPosts})(SearchQuestions);

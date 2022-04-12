@@ -2,10 +2,10 @@ import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import { getPost, deletePost } from '../../../../redux/posts/posts.actions';
 import UserCard from '../../../../components/UserCard/UserCard.component';
 
-import './PostCell.styles.scss';
 
 const PostCell = ({
   deletePost,
@@ -13,6 +13,7 @@ const PostCell = ({
   post: {
     post: { id, post_body, tagname, user_id, username, created_at },
   },
+  dateType,
   postId,
 }) => {
   useEffect(() => {
@@ -39,20 +40,20 @@ const PostCell = ({
                   <h4 className="fs-15 pb-2">Share a link to this question</h4>
                   <form action="#" className="copy-to-clipboard">
                     <span className="text-success-message">Link Copied!</span>
-                    <input type="text" className="form-control form--control form-control-sm copy-input" defaultValue="https://Disilab.com/q/66552850/15319675" />
+                    <input type="text" className="form-control form--control form-control-sm copy-input" defaultValue="https://Nova Forums.com/q/66552850/15319675" />
                     <div className="btn-box pt-2 d-flex align-items-center justify-content-between">
-                      <a href="#" className="btn-text copy-btn">Copy link</a>
+                      <Link to="#" className="btn-text copy-btn">Copy link</Link>
                       <ul className="social-icons social-icons-sm">
-                        <li><a href="#" className="bg-8 text-white shadow-none" title="Share link to this question on Facebook"><i className="la la-facebook" /></a></li>
-                        <li><a href="#" className="bg-9 text-white shadow-none" title="Share link to this question on Twitter"><i className="la la-twitter" /></a></li>
-                        <li><a href="#" className="bg-dark text-white shadow-none" title="Share link to this question on DEV"><i className="lab la-dev" /></a></li>
+                        <li><Link to="#" className="bg-8 text-white shadow-none" title="Share link to this question on Facebook"><i className="la la-facebook" /></Link></li>
+                        <li><Link to="#" className="bg-9 text-white shadow-none" title="Share link to this question on Twitter"><i className="la la-twitter" /></Link></li>
+                        <li><Link to="#" className="bg-dark text-white shadow-none" title="Share link to this question on DEV"><i className="lab la-dev" /></Link></li>
                       </ul>
                     </div>
                   </form>
                 </div>
               </div>
             </div>{/* btn-group */}
-            <a href="#" className="btn">Edit</a>
+            <Link to="#" className="btn">Edit</Link>
             <button className="btn">Follow</button>
             {!auth.loading &&
               auth.isAuthenticated &&
@@ -69,10 +70,36 @@ const PostCell = ({
               )}
           </div>{/* end post-menu */}
 
-          <UserCard created_at={created_at}
+          {/* <UserCard created_at={created_at}
             user_id={user_id}
             username={username}
-          />
+          /> */}
+           <div className="media media-card user-media align-items-center">
+              <Link to={`/users/${user_id}`} className="media-img d-block">
+                <img src={`https://secure.gravatar.com/avatar/${user_id}?s=164&d=identicon`} alt="avatar" />
+              </Link>
+              <div className="media-body d-flex align-items-center justify-content-between">
+                <div>
+                  <h5 className="pb-1">
+                    <Link to={`/users/${user_id}`}>
+                       {username}
+                  </Link>
+                  </h5>
+                  <div className="stats fs-12 d-flex align-items-center lh-18">
+
+                    <span className="pr-2 d-inline-flex align-items-center"><span className="ball" />Id: {user_id}</span>
+                  </div>
+                </div>
+                <small className="meta d-block text-right">
+                  <span className='text-black d-block lh-18'>
+                    {dateType ? dateType : 'asked'}
+                  </span>
+                  <span className='d-block lh-18 fs-12'> {moment(created_at).fromNow(true)}{' '} ago</span>
+
+                </small>
+              </div>
+            </div>
+
         </div>
         {/* end question-post-user-action */}
       </div>

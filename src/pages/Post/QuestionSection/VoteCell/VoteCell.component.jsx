@@ -1,7 +1,5 @@
 import React, {Fragment} from 'react';
 
-import './VoteCell.styles.scss';
-
 const VoteCell = ({answerCount, commentCount}) => {
   return (
     <Fragment>

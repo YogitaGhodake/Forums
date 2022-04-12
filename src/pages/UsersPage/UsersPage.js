@@ -5,20 +5,13 @@ import PropTypes from 'prop-types';
 import { getUsers } from '../../redux/users/users.actions';
 import handleSorting from '../../services/handleSorting';
 import Footer from '../../components/Header/Footer';
-import HeaderLight from '../../components/Header/HeaderLight';
-
-// import './UsersPage.styles.scss';
+import Header from '../../components/Header/Header';
 import Pagination from "../../components/Pagination/Pagination.component";
-import UserPanel from './UserPanel/UserPanel.component';
 import Spinner from '../../components/Spinner/Spinner.component';
-import SearchBox from '../../components/SearchBox/SearchBox.component';
 import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
 
-// import 'animate.css';
 
-
-
-const itemsPerPage = 12;
+const itemsPerPage = 7;
 const showInline = 5;
 
 const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
@@ -46,7 +39,7 @@ const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
         <Spinner type='page' width='75px' height='200px' />
     ) : (
         <Fragment>
-            <HeaderLight />
+            <Header dark={false} />
             <section className="question-area pt-40px pb-40px">
                 <div className="container" id='mainbar'>
                     <div className="filters pb-3">
@@ -79,19 +72,12 @@ const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
                                     selected={sortType}
                                     setSelected={setSortType}
                                 />
-                                {/* <Link to="#" className="btn active">Reputation</Link>
-                                <Link to="#" className="btn">New users</Link>
-                                <Link to="#" className="btn">Votes</Link>
-                                <Link to="#" className="btn">Editors</Link>
-                                <Link to="#" className="btn">Moderators</Link> */}
                             </div>
                         </div>
                     </div>
                     {/* <!-- end filters --> */}
-                    {/* <h1 class="animate__animated animate__bounce">An animated element</h1> */}
-
                     <div className="row">
-                    
+
                         {currentUsers
                             .filter((user) =>
                                 user.username.toLowerCase().includes(fetchSearch.toLowerCase())
@@ -100,8 +86,8 @@ const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
                             .map((user) => (
                                 // <UserPanel key={user.id} user={user} />
 
-                                <div className="col-lg-3 responsive-column-half">
-                             
+                                <div className="col-lg-3 responsive-column-half" key={user.id} user={user} >
+
                                     <div className="media media-card p-3 animate__animated animate__fadeIn">
                                         <Link to={`/users/${user.id}`} className="media-img d-inline-block flex-shrink-0">
                                             <img src={`https://secure.gravatar.com/avatar/${user.id}?s=164&d=identicon`} />
@@ -125,8 +111,6 @@ const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
 
                             ))}
 
-
-
                         {/* <!-- end col-lg-3 --> */}
                     </div>
                     {/* <!-- end row --> */}
@@ -140,9 +124,6 @@ const UsersPage = ({ getUsers, user: { id, username, users, loading } }) => {
                         }
                         hideOnSinglePage={true}
                     />
-
-
-
                 </div>
                 {/* <!-- end container --> */}
             </section>

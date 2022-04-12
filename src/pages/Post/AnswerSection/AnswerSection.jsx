@@ -10,12 +10,12 @@ import AnswerForm from '../../Post/AnswerSection/AnswerForm/AnswerForm.component
 
 
 
-const AnswerSection2 = ({ getAnswers, auth, answer, postId }) => {
+const AnswerSection = ({ getAnswers, auth, answer, postId }) => {
   useEffect(() => {
     getAnswers(postId);
     // eslint-disable-next-line
   }, [getAnswers]);
-  // console.log("auth","auth.loading",auth, auth.loading);
+  
 
   const [sortType, setSortType] = useState('Newest');
 
@@ -31,10 +31,15 @@ const AnswerSection2 = ({ getAnswers, auth, answer, postId }) => {
         <div className="subheader-actions d-flex align-items-center lh-1">
           <label className="fs-13 fw-regular mr-1 mb-0">Order by</label>
           <div className="w-100px">
-            <select className="select-container">
-              <option value="active">active</option>
-              <option value="oldest">oldest</option>
-              <option value="votes" defaultValue="selected">votes</option>
+            <select className="select-container selectized" tabindex="-1"
+               selected={sortType}
+               setSelected={setSortType}
+              >
+              <option buttons="active" selected="selected">active</option>
+              <option buttons="oldest">oldest</option>
+
+
+              {/* <option value="votes" defaultValue >votes</option> */}
             </select>
           </div>
         </div>{/* end subheader-actions */}
@@ -50,14 +55,13 @@ const AnswerSection2 = ({ getAnswers, auth, answer, postId }) => {
           </div>
         ))
       )}
-      {/* Asnwer Form */}
       <AnswerForm auth={auth} postId={postId}/>
 
     </Fragment>
   );
 };
 
-AnswerSection2.propTypes = {
+AnswerSection.propTypes = {
   auth: PropTypes.object.isRequired,
   getAnswers: PropTypes.func.isRequired,
   answer: PropTypes.object.isRequired,
@@ -70,4 +74,4 @@ const mapStateToProps = (state) => ({
 
 
 
-export default connect(mapStateToProps, { getAnswers })(AnswerSection2);
+export default connect(mapStateToProps, { getAnswers })(AnswerSection);

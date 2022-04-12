@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment, useState } from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -11,7 +12,7 @@ import {
 import Spinner from '../../../../components/Spinner/Spinner.component';
 import LinkButton from '../../../../components/LinkButton/LinkButton.component';
 
-import './CommentCell.styles.scss';
+
 
 const CommentCell = ({
   deleteComment,
@@ -73,6 +74,19 @@ const CommentCell = ({
                     </span>
                   </a>
                 </div>
+                {!auth.loading &&
+                      auth.isAuthenticated &&
+                      parseInt(comment.user_id) === auth.user.id && (
+                        <Link
+                          className='s-tag s-tag__moderator'
+                          style={{marginTop: '9px', color: 'red'}}
+                          title='Delete the comment'
+                          onClick={(e) => deleteComment(comment.id)}
+                          to={`/questions/${postId}`}
+                        >
+                          Delete
+                        </Link>
+                      )}
               </li>
 
             )))}

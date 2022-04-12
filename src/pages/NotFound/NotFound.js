@@ -1,49 +1,30 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
-
-// import './NotFound.styles.scss';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Header/Footer';
 
 const NotFound = () => {
   return (
     <Fragment>
-      <div className='page'>
-        <div className='box'>
-          <div className='box__ghost'>
-            <div className='symbol' />
-            <div className='symbol' />
-            <div className='symbol' />
-            <div className='symbol' />
-            <div className='symbol' />
-            <div className='symbol' />
-
-            <div className='box__ghost-container'>
-              <div className='box__ghost-eyes'>
-                <div className='box__eye-left' />
-                <div className='box__eye-right' />
-              </div>
-              <div className='box__ghost-bottom'>
-                <div />
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-            </div>
-            <div className='box__ghost-shadow' />
+      <Header dark={false} />
+     <section className="error-area section-padding position-relative">
+        <span className="icon-shape icon-shape-1" />
+        <span className="icon-shape icon-shape-2" />
+        <span className="icon-shape icon-shape-3" />
+        <span className="icon-shape icon-shape-4" />
+        <span className="icon-shape icon-shape-5" />
+        <span className="icon-shape icon-shape-6" />
+        <span className="icon-shape icon-shape-7" />
+        <div className="container">
+          <div className="text-center">
+            <img src="assets/images/error-img.png" alt="error-image" className="img-fluid mb-40px" />
+            <h2 className="section-title pb-3">Oops! Page not found!</h2>
+            <p className="section-desc pb-4">We're sorry, we couldn't find the page you requested.</p>
+            <Link className="btn theme-btn" to="/"> Go to homepage </Link>
           </div>
-          <div className='box__description'>
-            <div className='box__description-container'>
-              <div className='box__description-title fc-black-800'>Whoops!</div>
-              <div className='box__description-text fc-black-500'>
-                It seems like we couldn't find the page you were looking for
-              </div>
-            </div>
-            <Link to='/' className='box__button'>
-              Back to home page
-            </Link>
-          </div>
-        </div>
-      </div>
+        </div>{/* end container */}
+      </section>
+      <Footer />
     </Fragment>
   );
 };

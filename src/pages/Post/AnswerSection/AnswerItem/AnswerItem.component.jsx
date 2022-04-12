@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteAnswer } from '../../../../redux/answers/answers.actions';
 import moment from 'moment';
-import './AnswerItem.styles.scss';
+
 
 const AnswerItem = ({
   deleteAnswer,
@@ -44,7 +44,7 @@ const AnswerItem = ({
                     <h4 className="fs-15 pb-2">Share a link to this question</h4>
                     <form action="#" className="copy-to-clipboard">
                       <span className="text-success-message">Link Copied!</span>
-                      <input type="text" className="form-control form--control form-control-sm copy-input" defaultValue="https://Disilab.com/q/66552850/15319675" />
+                      <input type="text" className="form-control form--control form-control-sm copy-input" defaultValue="https://Nova Forums.com/q/66552850/15319675" />
                       <div className="btn-box pt-2 d-flex align-items-center justify-content-between">
                         <a href="#" className="btn-text copy-btn">Copy link</a>
                         <ul className="social-icons social-icons-sm">
@@ -61,7 +61,7 @@ const AnswerItem = ({
               <button className="btn">Follow</button>
             </div>{/* end post-menu */}
             <div className="media media-card user-media align-items-center">
-              <a href="user-profile.html" className="media-img d-block">
+              <a href={`/users/${user_id}`} className="media-img d-block">
                 <img src={`https://secure.gravatar.com/avatar/${user_id}?s=164&d=identicon`} alt="avatar" />
               </a>
               <div className="media-body d-flex align-items-center justify-content-between">

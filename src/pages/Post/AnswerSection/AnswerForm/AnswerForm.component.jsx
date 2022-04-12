@@ -2,17 +2,18 @@ import React, { Fragment, useState, useRef } from 'react';
 import LinkButton from '../../../../components/LinkButton/LinkButton.component';
 import RichTextEditor from '../../../../components/RichTextEditor/RichTextEditor.component';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addAnswer } from '../../../../redux/answers/answers.actions';
-import './AnswerForm.styles.scss';
 
 
-const AnswerForm2 = ({ addAnswer, auth, postId }) => {
+
+const AnswerForm = ({ addAnswer, auth, postId }) => {
     const [formData, setFormData] = useState({
         text: '',
     });
 
-    console.log("auth", "auth.loading 13 14", auth);
+    // console.log("auth", "auth.loading 13 14", auth, "formData", formData);
     const richTextEditorRef = useRef(null);
 
     const { text } = formData;
@@ -34,7 +35,6 @@ const AnswerForm2 = ({ addAnswer, auth, postId }) => {
         <Fragment>
             {!auth.loading && auth.isAuthenticated ? (
                 <Fragment>
-                    {/* design */}
                     <div className="subheader">
                         <div className="subheader-title">
                             <h3 className="fs-16">Your Answer</h3>
@@ -68,7 +68,9 @@ const AnswerForm2 = ({ addAnswer, auth, postId }) => {
                                 </div>
                             </div>
                             <br />
-                            <button className="btn theme-btn theme-btn-sm" type="submit">Post Your Answer</button>
+                            <button className="btn theme-btn theme-btn-sm" type="submit">
+                                     Post Your Answer
+                               </button>
                         </form>
                     </div>
                 </Fragment>
@@ -87,9 +89,9 @@ const AnswerForm2 = ({ addAnswer, auth, postId }) => {
     );
 };
 
-AnswerForm2.propTypes = {
+AnswerForm.propTypes = {
     addAnswer: PropTypes.func.isRequired,
 };
 
 
-export default connect(null, { addAnswer })(AnswerForm2);
+export default connect(null, { addAnswer })(AnswerForm);

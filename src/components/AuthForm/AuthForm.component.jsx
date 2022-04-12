@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../redux/auth/auth.actions';
 import { register } from '../../redux/auth/auth.actions';
-import Caption from '../../pages/Login/Caption/Caption.component';
-
+import LoginCaption from '../../pages/Login/LoginCaption/LoginCaption.component';
+import SignupCaption from '../../pages/SignUp/Caption/SignupCaption.component';
 
 
 const AuthForm = ({ register, login, action}) => {
@@ -16,12 +16,10 @@ const AuthForm = ({ register, login, action}) => {
 
   let title="Welcome to ";
 
-
   const { username, password } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
 
 
   const onSubmit = async (e) => {
@@ -55,23 +53,19 @@ const AuthForm = ({ register, login, action}) => {
     </Fragment>
   );
 
+ 
+
+  // const Show = ()=> action === 'signup' ? <LoginCaption /> : <SignupCaption /> 
+
   return (
     <Fragment>
       {/* {action === 'Sign up' ?<Caption/> : */}
-      <div className="login-area pt-100px pb-80px position-relative">
-        <div className="container">
           <form action="#" className="card card-item login-form" onSubmit={(e) => onSubmit(e)}>
             <div className="card-body row p-0">
-               <div className="col-lg-6">
-                    
-                {/* <div className="form-content p-4 h-100 d-flex align-items-center justify-content-center flex-column bg-diagonal-gradient-primary radius-top-left-8 radius-bottom-left-8 text-center">
-                  <h3 className="fs-35 pb-3 fw-bold text-white">Good to see you again</h3>
-                  <p className="text-white fs-18">Log in with your information that you entered
-                    <br /> during your registration.
-                  </p>
-                  <p className="text-white text-center pt-60px pb-3">Don't have an account?</p>
-                  <Link to="/signup" className="btn theme-btn theme-btn-white px-5 lh-24">Sign up</Link>
-                </div> */}
+               <div className="col-lg-6"> 
+               {/* <Show /> */}
+
+                { action ==='login' ? <LoginCaption /> : < SignupCaption /> }
               </div> 
               {/* <!-- end col-lg-6 --> */}
               <div className="col-lg-5 mx-auto">
@@ -213,7 +207,7 @@ const AuthForm = ({ register, login, action}) => {
           </form>
           <p className="text-black text-center fs-15">Don’t have an account?
             <Link to="/signup" className="text-color hover-underline"> Sign up</Link></p>
-        </div>
+        
 
         <div className='fs-caption license fc-black-500 hide'>
           By clicking “{action}”, you agree to our{' '}
@@ -301,7 +295,7 @@ const AuthForm = ({ register, login, action}) => {
             d="M0 343h48c48 0 144 0 240-40.8 96-41.2 192-122.2 288-147C672 131 768 163 864 196s192 65 288 89.8c96 24.2 192 41.2 288 40.9 96 .3 192-16.7 288-49 96-32.7 192-81.7 288-57.2s192 122.5 288 138.8c96 16.7 192-49.3 288-122.5C2688 163 2784 82 2880 98s192 131 288 138.8c96 8.2 192-89.8 288-81.6 96 7.8 192 122.8 288 122.5 96 .3 192-114.7 288-122.5 96-8.2 192 89.8 288 122.5 96 32.3 192 .3 288-8.2s192 8.5 288 32.7c96 24.8 192 56.8 288 81.6 96 24.2 192 41.2 288 49 96 8.2 192 8.2 288-40.8s192-147 288-187.8c96-41.2 192-24.2 288 16.3s192 106.5 288 138.8c96 32.7 192 32.7 240 32.7h48v98H0Z"
           />
         </svg>
-    </div>
+    
     </Fragment>
   );
 };

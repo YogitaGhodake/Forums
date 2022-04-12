@@ -1,18 +1,11 @@
 import React, { useEffect, Fragment } from 'react';
 import moment from 'moment';
-import { useParams, Link } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PageTitle from '../../components/PageTitle/PageTitle.component';
-import LinkButton from '../../components/LinkButton/LinkButton.component';
 import Spinner from '../../components/Spinner/Spinner.component';
 import Footer from '../../components/Header/Footer';
-import HeaderLight from '../../components/Header/HeaderLight';
-import TextHeader1 from '../Post/TextHeader1';
-import SidebarInQuestions from '../Post/SidebarInQuestions';
-import QuestionSection from '../Post/QuestionSection/QuestionSection';
-import AnswerSection from '../Post/AnswerSection/AnswerSection';
-import AnswerForm from '../Post/AnswerSection/AnswerForm/AnswerForm.component';
+import Header from '../../components/Header/Header';
 import { getUser } from '../../redux/users/users.actions';
 
 
@@ -24,8 +17,6 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
 
     const params = useParams();
 
-    console.log("P C 2", user, "username");
-
     return loading || user === null ? (
         <Spinner type='page' width='75px' height='200px' />
 
@@ -33,7 +24,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
         (
 
       <Fragment>
-        <HeaderLight />
+       <Header dark={false} />
             {/* <PageTitle title={`User ${user.username} - CLONE Stack Overflow`} /> */}
       <section className="hero-area bg-white shadow-sm overflow-hidden pt-60px">
         <span className="stroke-shape stroke-shape-1" />
@@ -334,7 +325,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                               <h3 className="fs-17">Top posts <span>(865)</span></h3>
                               <div className="filter-option-box w-100px lh-1">
                                 <select className="select-container">
-                                  <option defaultValue="selected" value="Votes">Votes</option>
+                                  <option defaultValue value="Votes">Votes</option>
                                   <option value="Newest">Newest</option>
                                 </select>
                               </div>
@@ -648,7 +639,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                             <div className="bg-gray p-3 rounded-rounded">
                               <div className="filter-option-box w-20">
                                 <select className="select-container">
-                                  <option value="summary" selected>Summary</option>
+                                  <option value="summary" defaultValue>Summary</option>
                                   <option value="answers">Answers</option>
                                   <option value="questions">Questions</option>
                                   <option value="tags">Tags</option>
@@ -667,7 +658,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                                   <label className="fs-14 fw-medium mr-2 mb-0">Sort</label>
                                   <div className="w-100px">
                                     <select className="select-container">
-                                      <option defaultValue="selected" value="Votes">Votes</option>
+                                      <option defaultValue value="Votes">Votes</option>
                                       <option value="Activity">Activity</option>
                                       <option value="Newest">Newest</option>
                                     </select>
@@ -768,7 +759,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                                 <label className="fs-14 fw-medium mr-2 mb-0">Sort</label>
                                 <div className="w-100px">
                                   <select className="select-container">
-                                    <option defaultValue="selected" value="Votes">Votes</option>
+                                    <option defaultValue value="Votes">Votes</option>
                                     <option value="Activity">Activity</option>
                                     <option value="Newest">Newest</option>
                                   </select>
@@ -952,7 +943,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                                 <label className="fs-14 fw-medium mr-2 mb-0">Sort</label>
                                 <div className="w-100px">
                                   <select className="select-container">
-                                    <option defaultValue="selected" value="Recent">Recent</option>
+                                    <option defaultValue value="Recent">Recent</option>
                                     <option value="Class">Class</option>
                                     <option value="Name">Name</option>
                                   </select>
@@ -1030,7 +1021,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                                 <div className="w-100px">
                                   <select className="select-container">
                                     <option value="Votes">Votes</option>
-                                    <option defaultValue="selected" value="Activity">Activity</option>
+                                    <option defaultValue value="Activity">Activity</option>
                                     <option value="Newest">Newest</option>
                                     <option value="Views">Views</option>
                                     <option value="Added">Added</option>
@@ -1139,7 +1130,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                                 <div className="w-100px">
                                   <select className="select-container">
                                     <option value="Votes">Votes</option>
-                                    <option defaultValue="selected" value="Activity">Activity</option>
+                                    <option defaultValue value="Activity">Activity</option>
                                     <option value="Newest">Newest</option>
                                     <option value="Views">Views</option>
                                     <option value="Added">Added</option>
@@ -1242,7 +1233,7 @@ const UserPage = ({ getUser, user: { user, loading } }) => {
                                 <label className="fs-14 fw-medium mr-2 mb-0">Sort</label>
                                 <div className="w-100px">
                                   <select className="select-container">
-                                    <option defaultValue="selected" value="Active">Active</option>
+                                    <option defaultValue value="Active">Active</option>
                                     <option value="Offered">Offered</option>
                                     <option value="Earned">Earned</option>
                                   </select>

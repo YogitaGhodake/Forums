@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Footer from '../../components/Header/Footer';
-import HeaderLight from '../../components/Header/HeaderLight';
+import Header from '../../components/Header/Header';
 import AskWidget from './AskWidget';
 import Spinner from '../../components/Spinner/Spinner.component';
 import AskForm from './AskForm';
@@ -19,7 +19,7 @@ const PostForm = ({ auth: { isAuthenticated, loading } }) => {
 
         //*****Add Question ********
         <Fragment>
-            <HeaderLight />
+            <Header dark={false} />
             <section className="question-area pt-80px pb-40px">
                 <div className="container">
                     <div className="row">
